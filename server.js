@@ -5,7 +5,18 @@ const app = express();
 app.use(express.json({ extended: false }));
 
 app.get("/", (req, res, next) => {
-    res.send(`<h1>welcome ${req.headers.host}</h1>`);
+    console.log(req.connection.remoteAddress,
+      req.connection.remotePort,
+      req.connection.localAddress,
+    )
+    res.send(`<h1> Host address : ${req.headers.host}</h1>
+              
+              <h1> Remote address : ${req.connection.remoteAddress}</h1>
+              
+              <h1> Remote port : ${req.connection.remotePort}</h1>
+
+              <h1> Local address : ${req.connection.localAddress}</h1>
+              `);
   });
 
   app.use('/health', require('express-healthcheck')({
