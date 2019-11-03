@@ -11,8 +11,6 @@ app.get("/", (req, res, next) => {
     )
     res.send(`<h1> Host address : ${req.headers.host}</h1>
               
-              <h1> Remote address : ${req.connection.remoteAddress}</h1>
-              
               <h1> Remote port : ${req.connection.remotePort}</h1>
 
               <h1> Local address : ${req.connection.localAddress}</h1>
