@@ -11,7 +11,7 @@ app.get("/", async (req, res, next) => {
         return response.body
     })
 
-    
+    console.log(locations)
     
     res.send(`<h1> Host address : ${req.headers.host}</h1>
               
