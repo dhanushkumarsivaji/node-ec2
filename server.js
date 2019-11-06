@@ -19,7 +19,6 @@ app.get("/", async (req, res, next) => {
 
               <h1> Local address : ${req.connection.localAddress}</h1>
 
-              <h1> Region : ${locations}</h1>
               `);
   });
 
