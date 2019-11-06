@@ -7,12 +7,12 @@ app.use(express.json({ extended: false }));
 
 app.get("/", async (req, res, next) => {
 
-    let locations = await request('http://169.254.169.254/latest/meta-data/placement/availability-zone',async function(error,response,body){
-          let check = await body
+    let locations =  request('http://169.254.169.254/latest/meta-data/placement/availability-zone',await function(error,response,body){
+          let check =  body
           return check
     })
 
-    console.log("locations",JSON.stringify(locations))
+    
     
     res.send(`<h1> Host address : ${req.headers.host}</h1>
               
