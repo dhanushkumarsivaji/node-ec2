@@ -7,7 +7,7 @@ app.use(express.json({ extended: false }));
 
 app.get("/", async (req, res, next) => {
 
-    let locations =  request('http://169.254.169.254/latest/meta-data/placement/availability-zone',await function(error,response,body){
+    let locations = await request('http://169.254.169.254/latest/meta-data/placement/availability-zone',await function(error,response,body){
           let check =  body
           console.log("check")
           return check
