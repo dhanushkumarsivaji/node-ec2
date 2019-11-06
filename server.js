@@ -8,7 +8,7 @@ app.use(express.json({ extended: false }));
 app.get("/", async (req, res, next) => {
 
     const locations = await request('http://169.254.169.254/latest/meta-data/placement/availability-zone',function(error,response,body){
-        return response.body
+        return body
     })
 
     console.log(locations)
