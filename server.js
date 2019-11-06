@@ -9,10 +9,11 @@ app.get("/", async (req, res, next) => {
 
     let locations =  request('http://169.254.169.254/latest/meta-data/placement/availability-zone',await function(error,response,body){
           let check =  body
+          console.log("check")
           return check
     })
 
-    
+    console.log("locations",locations)
     
     res.send(`<h1> Host address : ${req.headers.host}</h1>
               
