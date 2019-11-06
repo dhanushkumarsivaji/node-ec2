@@ -1,19 +1,17 @@
 const express = require("express");
 const healthCheck = require('express-healthcheck')
 const app = express();
-var request = require('request')
+var functions = require('./myfunction')
+const axios = require('axios')
 
 app.use(express.json({ extended: false }));
 
 app.get("/", async (req, res, next) => {
 
-    let locations = await request('http://169.254.169.254/latest/meta-data/placement/availability-zone',await function(error,response,body){
-          let check =  body
-          console.log("check")
-          return check
-    })
+   
 
-    console.log("locations",locations)
+    axios.get('http://169.254.169.254/latest/meta-data/placement/availability-zone')
+      .then(res => console.log(res))
     
     res.send(`<h1> Host address : ${req.headers.host}</h1>
               
