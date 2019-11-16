@@ -6,6 +6,7 @@ const app = express();
 
 app.use(express.json({ extended: false }));
 
+
 app.get("/", async (req, res, next) => {
 
     res.send(`<h1> Host address : ${req.headers.host}</h1>
